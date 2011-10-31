@@ -1,58 +1,5 @@
 from django.db import models
 
-VENUENAME_CHOICES = (
-    ('zoo', "ZOO Bar"),
-    ('duffys', "Duffy's Tavern"),
-    ('bourbon', "Bourbon Theatre"),
-    ('other', "Other"),
-)
-
-ADDRESS_CHOICES = (
-    ('136 N. 14th St.', "ZOO Bar"),
-    ('1412 O St.', "Duffy's Tavern"),
-    ('1415 O St.', "Bourbon Theatre"),
-    ('other', "Other"),
-)
-
-CITY_CHOICES = (
-    ('lincoln', "Lincoln"),
-    ('omaha', "Omaha"),
-    ('other', "Other"),
-)
-
-STATE_CHOICES = (
-    ('NE', "Nebraska"),
-    ('other', "Other"),
-)
-
-ZIP_CHOICES = (
-    ('68508', "ZOO Bar"),
-    ('68508', "Duffy's Tavern"),
-    ('68508', "Bourbon Theatre"),
-    ('other', "Other"),
-)
-
-PHONE_CHOICES = (
-    ('402-435-8754', "ZOO Bar"),
-    ('402-474-3543', "Duffy's Tavern"),
-    ('402-477-4776', "Bourbon Theatre"),
-    ('other', "Other"),
-)
-
-EMAIL_CHOICES = (
-    ('info@zoobar.com', "ZOO Bar"),
-    ('management@duffyslincoln.com', "Duffy's Tavern"),
-    ('n/a', "Bourbon Theatre"),
-    ('other', "Other"),
-)
-
-WEBSITE_CHOICES = (
-    ('zoobar.com', "ZOO Bar"),
-    ('duffyslincoln.com', "Duffy's Tavern"),
-    ('bourbontheatre.com', "Bourbon Theatre"),
-    ('other', "Other"),
-)
-
 GENRE_CHOICES = (
     ('alt', "Alternative"),
     ('blues', "Blues"),
@@ -70,6 +17,7 @@ GENRE_CHOICES = (
     ('rock', "Rock"),
     ('world', "World"),
     ('other', "Other"),
+    ('n/a', "N/A"),
 )
 
 COVER_CHOICES = (
@@ -80,20 +28,22 @@ COVER_CHOICES = (
 )
 
 class Venue(models.Model):
-    venue_name = models.CharField(max_length=50, choices=VENUENAME_CHOICES)
-    street_address = models.CharField(max_length=50, choices=ADDRESS_CHOICES)
-    city = models.CharField(max_length=20, choices=CITY_CHOICES)
-    state = models.CharField(max_length=5, choices=STATE_CHOICES)
-    zip_code = models.CharField(max_length=5, choices=ZIP_CHOICES)
-    phone = models.CharField(max_length=12, choices=PHONE_CHOICES)
-    email = models.CharField(max_length=50, choices=EMAIL_CHOICES)
-    venue_website = models.CharField(max_length=50, choices=WEBSITE_CHOICES)
+    venue_name = models.CharField(max_length=50)
+    street_address = models.CharField(max_length=50)
+    city = models.CharField(max_length=20)
+    state = models.CharField(max_length=2)
+    zip_code = models.CharField(max_length=5)
+    phone = models.CharField(max_length=12)
+    email = models.CharField(max_length=50)
+    venue_website = models.CharField(max_length=50)
     def __unicode__(self):
         return self.venue_name
 
 class Band(models.Model):
     band_name = models.CharField(max_length=200)
-    genre = models.CharField(max_length=50, choices=GENRE_CHOICES)
+    genre_1 = models.CharField(max_length=50, choices=GENRE_CHOICES)
+    genre_2 = models.CharField(max_length=50, choices=GENRE_CHOICES)
+    genre_3 = models.CharField(max_length=50, choices=GENRE_CHOICES)
     band_website = models.CharField(max_length=200)
     def __unicode__(self):
         return self.band_name
@@ -102,9 +52,13 @@ class Event(models.Model):
     event_name = models.CharField(max_length=200)
     event_date = models.DateField('event date')
     start_time = models.TimeField('event time')
-    band_name = models.ForeignKey(Band, related_name='event_band_name')
+    band_name_1 = models.ForeignKey(Band, related_name='event_band_name_1')
+    band_name_2 = models.ForeignKey(Band, related_name='event_band_name_2')
+    band_name_3 = models.ForeignKey(Band, related_name='event_band_name_3')
     cover = models.CharField(max_length=20, choices=COVER_CHOICES)
-    genre = models.CharField(max_length=50, choices=GENRE_CHOICES)
+    genre_1 = models.CharField(max_length=50, choices=GENRE_CHOICES)
+    genre_2 = models.CharField(max_length=50, choices=GENRE_CHOICES)
+    genre_3 = models.CharField(max_length=50, choices=GENRE_CHOICES)
     venue_name = models.ForeignKey(Venue, related_name='event_venue_name')
     def __unicode__(self):
         return self.event_name
