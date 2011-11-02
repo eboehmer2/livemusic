@@ -1,0 +1,9 @@
+{% if latest_event_list %}
+    <u1>
+    {% for event in latest_event_list %}
+        <li>{{ event.event_name }}
+    {% endfor %}
+    </u>
+{% else %}
+    <p>No events available.</p>
+{% endif %}
