@@ -1,0 +1,11 @@
+{% if venue_list %}
+    <u1>
+    {% for venue in venue_list %}
+        <a href="{{venue.get_absolute_url}}"><li>{{ venue }}</li></a>
+    {% endfor %}
+    </u>
+{% else %}
+    <p>No venues available.</p>
+{% endif %}
+
+<p><a href="/homepage.html">Home</a></p>

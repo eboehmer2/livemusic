@@ -36,6 +36,8 @@ class Venue(models.Model):
     phone = models.CharField(max_length=12)
     email = models.CharField(max_length=50)
     venue_website = models.CharField(max_length=50)
+    def get_absolute_url(self):
+        return "/venues/%i/" % self.id
     def __unicode__(self):
         return self.venue_name
 
@@ -45,6 +47,8 @@ class Band(models.Model):
     genre_2 = models.CharField(max_length=50, choices=GENRE_CHOICES)
     genre_3 = models.CharField(max_length=50, choices=GENRE_CHOICES)
     band_website = models.CharField(max_length=200)
+    def get_absolute_url(self):
+        return "/bands/%i/" % self.id
     def __unicode__(self):
         return self.band_name
 
@@ -60,5 +64,7 @@ class Event(models.Model):
     genre_2 = models.CharField(max_length=50, choices=GENRE_CHOICES)
     genre_3 = models.CharField(max_length=50, choices=GENRE_CHOICES)
     venue_name = models.ForeignKey(Venue, related_name='event_venue_name')
+    def get_absolute_url(self):
+        return "/events/%i/" % self.id
     def __unicode__(self):
         return self.event_name
