@@ -1,7 +1,10 @@
+<h1>Live Lincoln</h1>
+<h3>Events</h3>
+
 {% if latest_event_list %}
     <u1>
     {% for event in latest_event_list %}
-        <a href="{{event.get_absolute_url}}"><li>{{ event.event_name }}</li></a>
+        <p>{{ event.event_date }} - <a href="{{event.get_absolute_url}}">{{ event.event_name }}</a> at {{ event.venue_name }}</p>
     {% endfor %}
     </u>
 {% else %}

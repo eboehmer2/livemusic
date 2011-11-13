@@ -1,23 +1,31 @@
 from django.db import models
 
 GENRE_CHOICES = (
-    ('alt', "Alternative"),
+    ('acoustic', "Acoustic"),
+    ('alternative', "Alternative"),
+    ('bluegrass', "Bluegrass"),
     ('blues', "Blues"),
     ('country', "Country"),
     ('electronic', "Electronic & Techno"),
     ('folk', "Folk"),
+    ('funk', "Funk"),
     ('gospel', "Gospel & Religious"),
     ('hip hop', "Hip Hop & Rap"),
+    ('indie', "Indie"),
+    ('instrumental', "Instrumental"),
     ('jazz', "Jazz"),
     ('latin', "Latin"),
     ('metal', "Metal"),
     ('pop', "Pop"),
+    ('punk', "Punk"),
     ('r&b', "R&B"),
     ('reggae', "Reggae"),
     ('rock', "Rock"),
+    ('rock-n-roll', "Rock-n-Roll"),
+    ('soul', "Soul"),
     ('world', "World"),
     ('other', "Other"),
-    ('n/a', "N/A"),
+    ('n_a', "N/A"),
 )
 
 COVER_CHOICES = (
@@ -25,6 +33,7 @@ COVER_CHOICES = (
     ('1-4', "$1-4"),
     ('5-9', "$5-9"),
     ('10+', "$10 or more"),
+    ('unknown', "Unknown"),
 )
 
 class Venue(models.Model):

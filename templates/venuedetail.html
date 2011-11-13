@@ -1,0 +1,22 @@
+<h1>Live Lincoln</h1>
+<h3>{{ venue.venue_name }}</h3>
+
+<p>Address: {{ venue.street_address }}, {{ venue.city }}, {{ venue.state }} {{ venue.zip_code }}</p>
+
+{% if venue.phone == "none" %}
+{% else %}
+    <p>Phone: {{ venue.phone }}</p>
+{% endif %}
+
+{% if venue.email == "none" %}
+{% else %}
+    <p>E-mail: <a href="mailto:{{ venue.email }}">{{ venue.email }}</a></p>
+{% endif %}
+
+{% if venue.website == "none" %}
+{% else %}
+    <p>Website: <a href="http://{{ venue.venue_website }}">{{ venue.venue_website }}</a></p>
+{% endif %}
+
+
+<p><a href="/venues.html">Venues</a> | <a href="/homepage.html">Home</a></p>

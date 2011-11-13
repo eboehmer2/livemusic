@@ -1,13 +1,14 @@
-<p><a href="/events.html">Events List</a> - <a href="/bands.html">Bands List</a> - <a href="/venues.html">Venues List</a></p>
+<h1>Live Lincoln</h1>
+<h3>Upcoming Events...</h3>
 
 {% if latest_event_list %}
     <u1>
     {% for event in latest_event_list %}
-        <a href="{{event.get_absolute_url}}"><li>{{ event }}</li></a>
+        <p>{{event.event_date}} - <a href="{{event.get_absolute_url}}">{{ event }}</a></p>
     {% endfor %}
     </u>
 {% else %}
     <p>No events available.</p>
 {% endif %}
-<a href="/events.html">Full Events List</a>
 
+<p><a href="/events.html">Events</a> | <a href="/bands.html">Bands</a> | <a href="/venues.html">Venues</a></p>

@@ -1,0 +1,53 @@
+<h1>Live Lincoln</h1>
+<h3>{{ event.event_name }}</h3>
+
+{{ event.start_time }} on {{ event.event_date }} at {{ event.venue_name }}
+
+{% if event.cover == "unknown" %}
+{% else %}
+    <p>Cover: ${{ event.cover }}</p>
+{% endif %}
+
+<p>Bands:</p>
+{% if event.band_name_1 == "NA" %}
+{% else %}
+    <li>{{ event.band_name_1 }}</li>
+{% endif %}
+
+{% if event.band_name_2 == "NA" %}
+{% else %}
+    <li>{{ event.band_name_2 }}</li>
+{% endif %}
+
+{% if event_band_name_3 == "NA" %}
+{% else %}
+    <li>{{ event.band_name_3 }}</li>
+{% endif %}
+
+
+{% if event.genre_1 == "n/a" %}
+{% else %}
+<p>Genres:</p>
+<li>{{ event.genre_1 }}</li>
+{% endif %}
+
+{% if event.genre_2 == "n/a" %}
+{% else %}
+<li>{{ event.genre_2 }}</li>
+{% endif %}
+
+{% if event.genre_3 == "n/a" %}
+{% else %}
+<li>{{ event.genre_3 }}</li>
+{% endif %}
+
+
+
+{% if band.band_website == "none" %}
+{% else %}
+<p>Get more information about the band on their <a href="http://{{ band.band_website }}">website</a>.</p>
+{% endif %}
+
+
+
+<p><a href="/bands.html">Bands List</a> | <a href="/homepage.html">Home</a></p>

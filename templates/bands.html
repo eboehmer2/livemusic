@@ -1,11 +1,15 @@
+<h1>Live Lincoln</h1>
+<h3>Bands</h3>
 {% if band_list %}
-    <u1>
+    
     {% for band in band_list %}
-        <a href="{{band.get_absolute_url}}"><li>{{ band }}</li></a>
+        {% if band.band_name == "NA" %}
+        {% else %}
+            <a href="{{band.get_absolute_url}}"><li>{{ band }}</li></a>
+        {% endif %}
     {% endfor %}
-    </u>
+    
 {% else %}
     <p>No bands available.</p>
 {% endif %}
-
 <p><a href="/homepage.html">Home</a></p>
