@@ -1,28 +1,15 @@
 <h1>Live Lincoln</h1>
 <h3>{{ band.band_name }}</h3>
 
-{% if band.genre_1 == "n_a" %}
-{% else %}
-    Genres:
-<li>{{ band.genre_1 }}</li>
-{% endif %}
 
-{% if band.genre_2 == "n_a" %}
-{% else %}
-    <li>{{ band.genre_2 }}</li>
-{% endif %}
-
-{% if band.genre_3 == "n_a" %}
-{% else %}
-    <li>{{ band.genre_3 }}</li>
-{% endif %}
+Genres:
+<li>{{ band.band_genres }}</li>
 
 
 {% if band.band_website == "none" %}
 {% else %}
 <p>Get more information about the band on their <a href="http://{{ band.band_website }}">website</a>.</p>
 {% endif %}
-
 
 
 <p><a href="/bands.html">Bands</a> | <a href="/homepage.html">Home</a></p>
