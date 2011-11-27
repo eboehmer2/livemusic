@@ -3,7 +3,9 @@
 
 
 Genres:
-<li>{{ band.band_genres }}</li>
+<ul>{% for genre in band.band_genres.all %}
+<li>{{ genre.genre }}</li>
+{% endfor %}</ul>
 
 
 {% if band.band_website == "none" %}

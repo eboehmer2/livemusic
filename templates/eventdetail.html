@@ -12,11 +12,14 @@
 
 
 <p>Bands:</p>
-<li>{{ event.band_names }}</li>
-
+<ul>{% for band in event.band_names.all %}
+<li><a href="{{ band.get_absolute_url }}">{{ band.band_name }}</a></li>
+{% endfor %}</ul>
 
 <p>Genres:</p>
-<li>{{ event.event_genres }}</li>
+<ul>{% for genre in event.event_genres.all %}
+<li>{{ genre.genre }}</li>
+{% endfor %}</ul>
 
 
 <p><a href="/events.html">Events List</a> | <a href="/homepage.html">Home</a></p>

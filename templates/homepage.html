@@ -1,3 +1,6 @@
+
+{% extends "base.html" %}
+{% block main %}
 <h1>Live Lincoln</h1>
 <h3>Upcoming Events...</h3>
 
@@ -11,4 +14,10 @@
     <p>No events available.</p>
 {% endif %}
 
-<p><a href="/events.html">Events</a> | <a href="/bands.html">Bands</a> | <a href="/venues.html">Venues</a></p>
+{% endblock %}
+
+{% block sidebar %}
+<p><a href="/events.html">Events</a></p>
+<p><a href="/bands.html">Bands</a></p>
+<p><a href="/venues.html">Venues</a></p>
+{% endblock %}
