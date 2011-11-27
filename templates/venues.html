@@ -1,14 +1,20 @@
-<h1>Live Lincoln</h1>
-<h3>Venues</h3>
+{% extends "base.html" %}
 
+{% block title %}
+<h1>Venues</h1>
+{% endblock %}
+
+{% block main %}
 {% if venue_list %}
     <u1>
     {% for venue in venue_list %}
-        <a href="{{venue.get_absolute_url}}"><li>{{ venue }}</li></a>
+        <a href="{{venue.get_absolute_url}}"><ul>{{ venue }}</ul></a>
     {% endfor %}
     </u>
 {% else %}
     <p>No venues available.</p>
 {% endif %}
+{% endblock %}
 
-<p><a href="/homepage.html">Home</a></p>
+{% block sidebar %}
+{% endblock %}

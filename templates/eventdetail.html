@@ -1,15 +1,18 @@
-<h1>Live Lincoln</h1>
-<h3>{{ event.event_name }}</h3>
+{% extends "base.html" %}
+
+{% block title %}
+<h1>{{ event.event_name }}</h1>
+{% endblock %}
 
 
-{{ event.start_time }} on {{ event.event_date }} at {{ event.venue_name }}
+{% block main %}
+<h3>{{ event.start_time }} on {{ event.event_date }} at <a href="{{ event.venue_name.get_absolute_url }}">{{ event.venue_name }}</a></h3>
 
 
 {% if event.cover == "unknown" %}
 {% else %}
-    <p>Cover: ${{ event.cover }}</p>
+    <h3>Cover: ${{ event.cover }}</h3>
 {% endif %}
-
 
 <p>Bands:</p>
 <ul>{% for band in event.band_names.all %}
@@ -20,6 +23,7 @@
 <ul>{% for genre in event.event_genres.all %}
 <li>{{ genre.genre }}</li>
 {% endfor %}</ul>
+{% endblock %}
 
-
-<p><a href="/events.html">Events List</a> | <a href="/homepage.html">Home</a></p>
+{% block sidebar %}
+{% endblock %}

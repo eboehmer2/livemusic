@@ -1,17 +1,20 @@
-<h1>Live Lincoln</h1>
-<h3>{{ band.band_name }}</h3>
+{% extends "base.html" %}
 
+{% block title %}
+<h1>{{ band.band_name }}</h1>
+{% endblock %}
 
+{% block main %}
 Genres:
 <ul>{% for genre in band.band_genres.all %}
 <li>{{ genre.genre }}</li>
 {% endfor %}</ul>
 
-
 {% if band.band_website == "none" %}
 {% else %}
-<p>Get more information about the band on their <a href="http://{{ band.band_website }}">website</a>.</p>
+<p>Website: <a href="http://{{ band.band_website }}">{{ band.band_website }}</a></p>
 {% endif %}
+{% endblock %}
 
-
-<p><a href="/bands.html">Bands</a> | <a href="/homepage.html">Home</a></p>
+{% block sidebar %}
+{% endblock %}

@@ -1,23 +1,25 @@
 
 {% extends "base.html" %}
+
+{% block title %}
+<h1>LiveLincoln <small>Where live music lives.</small></h1>
+{% endblock %}
+
+
 {% block main %}
-<h1>Live Lincoln</h1>
 <h3>Upcoming Events...</h3>
 
 {% if latest_event_list %}
     <u1>
     {% for event in latest_event_list %}
-        <p>{{event.event_date}} - <a href="{{event.get_absolute_url}}">{{ event }}</a></p>
+        <p>{{ event.event_date }} - <a href="{{ event.get_absolute_url }}">{{ event }}</a></p>
     {% endfor %}
     </u>
 {% else %}
     <p>No events available.</p>
 {% endif %}
-
 {% endblock %}
 
+
 {% block sidebar %}
-<p><a href="/events.html">Events</a></p>
-<p><a href="/bands.html">Bands</a></p>
-<p><a href="/venues.html">Venues</a></p>
 {% endblock %}
