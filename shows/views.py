@@ -20,7 +20,8 @@ def venues(request):
 
 def banddetail(request, band_id):
     b = get_object_or_404(Band, pk=band_id)
-    return render_to_response('banddetail.html', {'band': b},
+    events = Event.objects.filter(band_names=b)
+    return render_to_response('banddetail.html', {'band': b, 'events': events},
                                context_instance=RequestContext(request))
 
 def eventdetail(request, event_id):
@@ -30,6 +31,7 @@ def eventdetail(request, event_id):
 
 def venuedetail(request, venue_id):
     v = get_object_or_404(Venue, pk=venue_id)
-    return render_to_response('venuedetail.html', {'venue': v},
+    events = Event.objects.filter(venue_name=v)
+    return render_to_response('venuedetail.html', {'venue': v, 'events': events},
                                context_instance=RequestContext(request))
 

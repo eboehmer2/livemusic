@@ -8,7 +8,9 @@
 {% if latest_event_list %}
     <ul>
     {% for event in latest_event_list %}
-        <p>{{ event.event_date }} - <a href="{{event.get_absolute_url}}">{{ event.event_name }}</a> at <a href="{{ event.venue_name.get_absolute_url }}">{{ event.venue_name }}</a></p>
+        <p><b>{{ event.event_date }}</b><br>
+<a href="{{event.get_absolute_url}}">{{ event.event_name }}</a><br>
+at <a href="{{ event.venue_name.get_absolute_url }}">{{ event.venue_name }}</a></p>
     {% endfor %}
     </ul>
 {% else %}

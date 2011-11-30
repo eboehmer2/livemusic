@@ -24,4 +24,8 @@
 {% endblock %}
 
 {% block sidebar %}
+<b>Upcoming Events</b>
+<ul>{% for object in events %}
+<li><a href="{{ object.get_absolute_url }}">{{ object.event_name }}</a></li>
+{% endfor %} </ul>
 {% endblock %}
