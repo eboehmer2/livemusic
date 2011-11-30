@@ -32,3 +32,4 @@ def venuedetail(request, venue_id):
     v = get_object_or_404(Venue, pk=venue_id)
     return render_to_response('venuedetail.html', {'venue': v},
                                context_instance=RequestContext(request))
+
