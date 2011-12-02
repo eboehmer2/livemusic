@@ -3,7 +3,7 @@ from django.shortcuts import render_to_response, get_object_or_404
 from django.template import RequestContext
 
 def homepage(request):
-    latest_event_list = Event.objects.all().order_by('event_date')[:5]
+    latest_event_list = Event.objects.all().order_by('event_date', 'start_time')[:7]
     return render_to_response('homepage.html', {'latest_event_list': latest_event_list})
 
 def events(request):
@@ -20,7 +20,7 @@ def venues(request):
 
 def banddetail(request, band_id):
     b = get_object_or_404(Band, pk=band_id)
-    events = Event.objects.filter(band_names=b)
+    events = Event.objects.filter(band_names=b).order_by('event_date', 'start_time')
     return render_to_response('banddetail.html', {'band': b, 'events': events},
                                context_instance=RequestContext(request))
 
@@ -31,7 +31,7 @@ def eventdetail(request, event_id):
 
 def venuedetail(request, venue_id):
     v = get_object_or_404(Venue, pk=venue_id)
-    events = Event.objects.filter(venue_name=v)
+    events = Event.objects.filter(venue_name=v).order_by('event_date', 'start_time')
     return render_to_response('venuedetail.html', {'venue': v, 'events': events},
                                context_instance=RequestContext(request))
 

@@ -5,20 +5,21 @@
 {% endblock %}
 
 {% block main %}
-Genres:
+<b>Genres</b>:
 <ul>{% for genre in band.band_genres.all %}
 <li>{{ genre.genre }}</li>
 {% endfor %}</ul>
 
 {% if band.band_website == "none" %}
 {% else %}
-<p>Website: <a href="http://{{ band.band_website }}">{{ band.band_website }}</a></p>
+<p><b>Website</b>: <a href="http://{{ band.band_website }}">{{ band.band_website }}</a></p>
 {% endif %}
 {% endblock %}
 
 {% block sidebar %}
 <b>Upcoming Events</b>
-<ul>{% for object in events %}
-<li><a href="{{ object.get_absolute_url }}">{{ object.event_name }}</a></li>
+<p><ul>{% for object in events %}
+<li><a href="{{ object.get_absolute_url }}">{{ object.event_name }}</a><br>
+at <a href="{{ object.venue_name.get_absolute_url }}">{{ object.venue_name }}</a></li></p>
 {% endfor %} </ul>
 {% endblock %}

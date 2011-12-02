@@ -6,7 +6,8 @@
 
 
 {% block main %}
-<h3>{{ event.start_time }} on {{ event.event_date }} at <a href="{{ event.venue_name.get_absolute_url }}">{{ event.venue_name }}</a></h3>
+<h3>{{ event.start_time }} on {{ event.event_date }}<br>
+at <a href="{{ event.venue_name.get_absolute_url }}">{{ event.venue_name }}</a></h3>
 
 
 {% if event.cover == "unknown" %}
@@ -14,12 +15,12 @@
     <h3>Cover: ${{ event.cover }}</h3>
 {% endif %}
 
-<p>Bands:</p>
+<h5>Bands:</h5>
 <ul>{% for band in event.band_names.all %}
 <li><a href="{{ band.get_absolute_url }}">{{ band.band_name }}</a></li>
 {% endfor %}</ul>
 
-<p>Genres:</p>
+<h5>Genres:</h5>
 <ul>{% for genre in event.event_genres.all %}
 <li>{{ genre.genre }}</li>
 {% endfor %}</ul>

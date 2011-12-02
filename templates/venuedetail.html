@@ -5,27 +5,28 @@
 {% endblock %}
 
 {% block main %}
-<p>Address: {{ venue.street_address }}, {{ venue.city }}, {{ venue.state }} {{ venue.zip_code }}</p>
+<p><b>Address</b>: {{ venue.street_address }}, {{ venue.city }}, {{ venue.state }} {{ venue.zip_code }}</p>
 
 {% if venue.phone == "none" %}
 {% else %}
-    <p>Phone: {{ venue.phone }}</p>
+    <p><b>Phone</b>: {{ venue.phone }}</p>
 {% endif %}
 
 {% if venue.email == "none" %}
 {% else %}
-    <p>E-mail: <a href="mailto:{{ venue.email }}">{{ venue.email }}</a></p>
+    <p><b>E-mail</b>: <a href="mailto:{{ venue.email }}">{{ venue.email }}</a></p>
 {% endif %}
 
 {% if venue.website == "none" %}
 {% else %}
-    <p>Website: <a href="http://{{ venue.venue_website }}">{{ venue.venue_website }}</a></p>
+    <p><b>Website</b>: <a href="http://{{ venue.venue_website }}">{{ venue.venue_website }}</a></p>
 {% endif %}
 {% endblock %}
 
 {% block sidebar %}
 <b>Upcoming Events</b>
-<ul>{% for object in events %}
-<li><a href="{{ object.get_absolute_url }}">{{ object.event_name }}</a></li>
+<p><ul>{% for object in events %}
+<li>{{ object.event_date }} at {{ object.start_time }}<br>
+<a href="{{ object.get_absolute_url }}">{{ object.event_name }}</a></li></p>
 {% endfor %} </ul>
 {% endblock %}

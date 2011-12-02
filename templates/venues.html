@@ -8,7 +8,7 @@
 {% if venue_list %}
     <u1>
     {% for venue in venue_list %}
-        <a href="{{venue.get_absolute_url}}"><ul>{{ venue }}</ul></a>
+        <b><a href="{{venue.get_absolute_url}}"><ul>{{ venue }}</a></b><br>{{ venue.street_address }}, {{ venue.city }}, {{ venue.state }} {{ venue.zip_code }}</ul>
     {% endfor %}
     </u>
 {% else %}
